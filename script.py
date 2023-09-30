@@ -24,7 +24,7 @@ repo = Repo(repo_path)
 
 # Getting a list of remote repositories
 remote_repositories = repo.remotes
-print(remote_repositories)
+#print(remote_repositories)
 
 # Generating a list of URLs of remote repositories
 remote_urls = [remote.url for remote in remote_repositories]
@@ -32,23 +32,23 @@ remote_urls = [remote.url for remote in remote_repositories]
 
 # Creating a remote repository object for each URL
 #remote_repos = [repo.create_remote(name=str(i), url=url) for i, url in enumerate(remote_urls)]
-try:
-    remote_repos = []
-    for i, url in enumerate(remote_urls):
-        try:
-            remote_repos.append(repo.remotes(name=str(i), url=url))
-        except GitCommandError as e:
-            if "remote {} already exists".format(i) in str(e):
-                pass
+#try:
+#    remote_repos = []
+#    for i, url in enumerate(remote_urls):
+#        try:
+#            remote_repos.append(repo.remotes(name=str(i), url=url))
+#        except GitCommandError as e:
+#            if "remote {} already exists".format(i) in str(e):
+#                pass
                 # Обработка ошибки, если удаленный репозиторий уже существует
                 #remote_repos.append(repo.remotes[str(i)])
-            else:
+#            else:
                 # Обработка других ошибок
-                raise e
-except Exception as e:
+#                raise e
+#except Exception as e:
     # Обработка любых других исключений
-    print("Произошла ошибка:", str(e))
-print(remote_repos)
+#    print("Произошла ошибка:", str(e))
+#print(remote_repos)
 
 
 # Uploading all changes to the local repository
@@ -61,7 +61,8 @@ repo.git.commit('-m', dt)
 print('Commit OK!')
 
 # Send changes to all remote repositories
-for remote_repo in remote_repos:
+#for remote_repo in remote_repos:
+for remote_repo in remote_repositories:
     remote_repo.push()
 print('Push OK!')
 
