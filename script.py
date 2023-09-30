@@ -22,7 +22,7 @@ repo_path = '/home/sasha/03.Git/repo/'
 repo = Repo(repo_path)
 
 
-# Getting a list of deleted repositories
+# Getting a list of remote repositories
 remote_repositories = repo.remotes
 
 
@@ -36,7 +36,7 @@ try:
     remote_repos = []
     for i, url in enumerate(remote_urls):
         try:
-            remote_repos.append(repo.create_remote(name=str(i), url=url))
+            remote_repos.append(repo.remotes(name=str(i), url=url))
         except GitCommandError as e:
             if "remote {} already exists".format(i) in str(e):
                 pass
