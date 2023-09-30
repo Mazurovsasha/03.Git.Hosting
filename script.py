@@ -39,8 +39,9 @@ try:
             remote_repos.append(repo.create_remote(name=str(i), url=url))
         except GitCommandError as e:
             if "remote {} already exists".format(i) in str(e):
+                pass
                 # Обработка ошибки, если удаленный репозиторий уже существует
-                remote_repos.append(repo.remotes[str(i)])
+                #remote_repos.append(repo.remotes[str(i)])
             else:
                 # Обработка других ошибок
                 raise e
