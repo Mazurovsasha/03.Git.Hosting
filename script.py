@@ -24,7 +24,7 @@ repo = Repo(repo_path)
 
 # Getting a list of remote repositories
 remote_repositories = repo.remotes
-
+print(remote_repositories)
 
 # Generating a list of URLs of remote repositories
 remote_urls = [remote.url for remote in remote_repositories]
