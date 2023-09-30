@@ -47,6 +47,8 @@ try:
 except Exception as e:
     # Обработка любых других исключений
     print("Произошла ошибка:", str(e))
+print(remote_repos)
+
 
 # Uploading all changes to the local repository
 repo.git.add('--all')
